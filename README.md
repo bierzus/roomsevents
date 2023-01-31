@@ -1,1 +1,4 @@
-"# roomsevents" 
+- Create a virtual environment
+- Clone project
+- Install requirements.txt
+- Run migrations

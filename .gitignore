@@ -101,6 +101,7 @@ celerybeat-schedule.*
 #.env
 pythonchallengeenv/
 mybusiness/.env
+mybusiness/mybusiness/.env
 .venv
 env/
 venv/
