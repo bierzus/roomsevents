@@ -1,7 +1,6 @@
 from django.db import models
 from django_softdelete.models import SoftDeleteModel
 from room.models import Room
-from django.contrib.auth.models import User
 
 # Specifying event type choices
 TYPE_CHOICES = (
