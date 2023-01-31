@@ -1,3 +1,6 @@
+from django.db import IntegrityError
+from rest_framework.exceptions import ValidationError
+
 from .models import Event, CustomerBook
 from .serializers import EventSerializer, CustomerBookSerializer
 from django.http import Http404
@@ -69,8 +72,12 @@ class CustomerBookList(APIView):
     def post(self, request, format=None):
         serializer = CustomerBookSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
-            serializer.save()
-            return Response(status=status.HTTP_201_CREATED)
+            try:
+                serializer.save()
+            except IntegrityError:
+                return Response(status=status.HTTP_409_CONFLICT)
+            else:
+                return Response(status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

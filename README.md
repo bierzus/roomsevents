@@ -3,9 +3,7 @@
   - Clone project
   - Install requirements.txt
   - Run migrations
-
-# Notes:
-  - Only superuser can perform "business" actions
+  - Create superuser (only this user can perform "business" actions)
 
 # Run basic initial test
   - python manage.py test room

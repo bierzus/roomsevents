@@ -48,7 +48,7 @@ class RoomDetail(APIView):
 
     def delete(self, request, pk, format=None):
         room = self.get_object(pk)
-        events = Event.objects.select_related('room').all()
+        events = Event.objects.filter(room=room)
         if not events:
             room.delete()
             return Response(status=status.HTTP_204_NO_CONTENT)
